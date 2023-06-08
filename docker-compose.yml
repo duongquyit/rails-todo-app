@@ -1,0 +1,21 @@
+services:
+  db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASEL: rails_todo_app_development
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - "33061:3306"
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "5000:3000"
+    depends_on:
+      - db
+volumes:
+  db_data:
