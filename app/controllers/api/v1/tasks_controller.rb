@@ -21,6 +21,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def show
+    binding.pry
     render json: {data: @task}, status: :ok
   end
 

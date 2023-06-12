@@ -42,9 +42,13 @@ group :development, :test do
   gem 'faker', '~> 3.2'
   gem 'pry', '~> 0.14.1'
   gem "factory_bot_rails"
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'mocha'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+gem 'devise', '~> 4.9', '>= 4.9.2'
